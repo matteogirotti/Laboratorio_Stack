@@ -9,7 +9,10 @@ namespace LaboratorioStack.Core
         private Stack<string> _redoStack = new Stack<string>();
         private string _testoCorrente = "";
 
-        public string TestoCorrente => string.IsNullOrEmpty(_testoCorrente) ? "[Vuoto]" : _testoCorrente;
+        public string TestoCorrente
+        {
+            get { return string.IsNullOrEmpty(_testoCorrente) ? "[Vuoto]" : _testoCorrente; }
+        }
 
         public void Digita(string nuovaParola)
         {
@@ -40,8 +43,8 @@ namespace LaboratorioStack.Core
         public void StampaDebug()
         {
             Console.WriteLine($"\n--- DEBUG STACK ---");
-            Console.WriteLine($"Undo Stack (storia): {string.Join(" | ", _undoStack)}");
-            Console.WriteLine($"Redo Stack (futuro): {string.Join(" | ", _redoStack)}");
+            Console.WriteLine($"Undo Stack (storia): {string.Join(" | ", _undoStack)}" + "Elementi: " + _undoStack.Count);
+            Console.WriteLine($"Redo Stack (futuro): {string.Join(" | ", _redoStack)}" + "Elementi: " + _redoStack.Count);
             Console.WriteLine("-------------------\n");
         }
     }
